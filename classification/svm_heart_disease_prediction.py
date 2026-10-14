@@ -5,6 +5,7 @@ Heart disease prediction with a linear SVM, on the UCI/Kaggle
 Requires: data/heart_statlog_cleveland_hungary_final.csv
 (download from Kaggle - search "heart statlog cleveland hungary final").
 """
+from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -12,7 +13,8 @@ import seaborn as sns
 from sklearn import metrics, svm
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("../data/heart_statlog_cleveland_hungary_final.csv")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+df = pd.read_csv(DATA_DIR / "heart_statlog_cleveland_hungary_final.csv")
 print("Shape of DataFrame:", df.shape)
 print(df.describe())
 

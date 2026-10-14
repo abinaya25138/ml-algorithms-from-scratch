@@ -5,12 +5,14 @@ of SVR fitting a non-linear relationship with a small dataset.
 
 Requires: data/Position_Salaries.csv (included in this repo).
 """
+from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 
-dataset = pd.read_csv("../data/Position_Salaries.csv")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+dataset = pd.read_csv(DATA_DIR / "Position_Salaries.csv")
 print(dataset)
 
 X = dataset.iloc[:, 1:-1].values  # Level

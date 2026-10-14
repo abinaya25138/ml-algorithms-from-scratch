@@ -4,13 +4,15 @@ comparison against the KNN classifier on the same data.
 
 Requires: data/Social_Network_Ads.csv
 """
+from pathlib import Path
 import pandas as pd
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 
-dataset = pd.read_csv("../data/Social_Network_Ads.csv")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+dataset = pd.read_csv(DATA_DIR / "Social_Network_Ads.csv")
 X = dataset.iloc[:, [1, 2, 3]].values
 y = dataset.iloc[:, -1].values
 

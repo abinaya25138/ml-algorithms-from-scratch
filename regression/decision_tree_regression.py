@@ -6,13 +6,15 @@ income, highway miles, and license-holder ratio (classic
 Requires: data/petrol_consumption.csv
 (download from Kaggle - search "petrol consumption dataset").
 """
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 
-dataset = pd.read_csv("../data/petrol_consumption.csv")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+dataset = pd.read_csv(DATA_DIR / "petrol_consumption.csv")
 print(dataset.head())
 print(dataset.describe())
 
